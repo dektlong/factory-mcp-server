@@ -1,10 +1,18 @@
 ---
 applications:
-  - name: dekt-factory-supplychain-mcp
+  - name: dekt-factory-data-mcp
     buildpacks:
       - java_buildpack_offline
     memory: 1G
     instances: 1
     path: target/factory-0.0.1-SNAPSHOT.jar
+    routes:
+      - route: dekt-factory-data.apps.internal  
     env:
       JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 21.+ } }'
+    #services:
+    #  - dekt-mcp-gw
+    # Bind to GW+SSO instance after push 
+
+   
+
